@@ -1,0 +1,20 @@
+[ERROR] 2017-08-16 11:29:31,642                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 58.19.57.154, not in whitelist hint: [WRAMmA0171e578]
+  [ERROR] 2017-08-16 11:30:04,935                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 58.19.57.154, not in whitelist hint: [ZFQhhA0204e514]
+  [ERROR] 2017-08-16 11:32:34,661                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 58.19.57.154, not in whitelist hint: [cORBUa0354e578]
+  [ERROR] 2017-08-16 11:33:31,548                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 58.19.57.154, not in whitelist hint: [H.AubA0411e544]
+  [ERROR] 2017-08-16 17:25:29,264                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 58.19.57.154, not in whitelist hint: [Q2B7Za0528e514]
+  [ERROR] 2017-08-16 20:29:31,261                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 175.189.198.27, not in whitelist hint: [1dfXea0570e575]
+  [ERROR] 2017-08-16 20:29:55,186                       util.WeixinUtil     - 获取token失败 errcode:40164 errmsg:invalid ip 175.189.198.27, not in whitelist hint: [cZSv7a0594e514]
+  [INFO ] 2017-08-16 21:12:17,337               entity.menu.MenuManager     - 菜单创建成功！
+  [ERROR] 2017-08-16 21:20:30,785                       util.WeixinUtil     - 创建菜单失败 errcode:40018 errmsg:invalid button name size hint: [H.DAwa0630vr23]
+  [INFO ] 2017-08-16 21:20:30,785               entity.menu.MenuManager     - 菜单创建失败，错误码：40018
+  [INFO ] 2017-08-16 21:20:55,081               entity.menu.MenuManager     - 菜单创建成功！
+  [INFO ] 2017-08-16 21:27:30,560               entity.menu.MenuManager     - 菜单创建成功！
+  [INFO ] 2017-08-16 21:28:56,606               entity.menu.MenuManager     - 菜单创建成功！
+  [INFO ] 2017-08-16 21:29:58,240               entity.menu.MenuManager     - 菜单创建成功！
+  [INFO ] 2017-08-16 21:34:33,156               entity.menu.MenuManager     - 菜单创建成功！
+  [ERROR] 2017-08-16 21:38:11,695                       util.WeixinUtil     - 创建菜单失败 errcode:40017 errmsg:invalid button type hint: [E8NZ70690vr25]
+  [INFO ] 2017-08-16 21:38:11,695               entity.menu.MenuManager     - 菜单创建失败，错误码：40017
+  [INFO ] 2017-08-16 21:39:11,028               entity.menu.MenuManager     - 菜单创建成功！
+  [INFO ] 2017-08-16 21:46:37,882               entity.menu.MenuManager     - 菜单创建成功！
+  

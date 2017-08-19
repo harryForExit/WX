@@ -1,0 +1,59 @@
+
+/* flex */
+.page.slideIn {
+-webkit-animation:slideIn .2s forwards;
+animation:slideIn .2s forwards
+}
+.page.slideOut {
+-webkit-animation:slideOut .2s forwards;
+animation:slideOut .2s forwards
+}
+.page-bd .weui-flex {
+ 
+    align-items: center;
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+    display: -webkit-flex;
+     display: -webkit-box;
+    display: flex;
+}
+.page-bd .weui-flex-item {
+-webkit-flex: 1 1 0;
+    flex: 1 1 0;
+}
+.weui-flex {
+ display: -webkit-box;
+display: -webkit-flex;
+    display: flex;
+}
+.weui-flex-item {
+     -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+}
+.placeholder {
+    border: 1px #ebebeb solid;
+    color: #cfcfcf;
+    height: 4em;
+    /*line-height: 2.1em;*/
+
+	margin-left:5px;
+	margin-right:5px;
+    text-align: center;
+	background:#ffffff;
+	padding-top:14px;
+	border-radius:10px;
+}
+.placeholder_red{
+    border: 1px #F00 solid;
+    color: #F00;
+    height: 4em;
+    /*line-height: 2.1em;*/
+
+	margin-left:5px;
+	margin-right:5px;
+    text-align: center;
+	background:#ffffff;
+	padding-top:14px;
+	border-radius:10px;
+}
