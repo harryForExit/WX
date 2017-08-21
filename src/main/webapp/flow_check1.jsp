@@ -26,13 +26,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <input class="weui_input" type="number" name="number" id="number" placeholder="请输入物联网卡号"/>
                         </div>
                     </div>
-                    
-                    
                 </div>
                 <div class="weui_btn_area">
                <!--  <a href="from_smrz_2.html" class="weui_btn weui_btn_primary">查询</a> -->
                  <input type="button" class="weui_btn weui_btn_primary" onclick="cc();" value="查询"/>
                 </div>
+        </form>
         </div>
     </div>
 </body>
