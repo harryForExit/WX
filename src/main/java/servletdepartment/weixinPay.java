@@ -3,6 +3,7 @@ package servletdepartment;
 import WeiXinPay.sdk.WXPay;
 import WeiXinPay.sdk.WXPayConfig;
 import WeiXinPay.sdk.WXPayConfigImpl;
+import util.IpUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +43,7 @@ public class weixinPay extends HttpServlet {
             data.put("device_info", "");
             data.put("fee_type", "CNY");
             data.put("total_fee", total_fee);
-            data.put("spbill_create_ip", "123.12.12.123");
+            data.put("spbill_create_ip", IpUtil.getRemortIP(request));
             data.put("notify_url", "http://test.letiantian.me/wxpay/notify");
             data.put("trade_type", "NATIVE");
             data.put("product_id", uuid);
