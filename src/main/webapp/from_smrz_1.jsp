@@ -1,4 +1,5 @@
 <%@page language="java" pageEncoding="utf-8" isELIgnored="false"%>
+<%@ page import="util.TokenProcessor" %>
 <!DOCTYPE html>
 <%
 String path = request.getContextPath();
@@ -15,12 +16,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
 </head>
 <body ontouchstart>
+<%
+    //获取令牌类实例
+
+    TokenProcessor processor = TokenProcessor.getInstance();
+    //获取令牌值
+
+    String token = processor.getToken(request);
+   %>
     <div class="container js_container">
         <div class="page">
         <div class=""><img src="img/process_1.png" width="100%"></div>
        
         <div class="weui_cells_title">表单</div>
           <form action="index" id="loginForm1" method="post" name="loginForm1" id="loginForm1">
+          <input type="hidden" name="_form_token" value="{$_form_token}" />
+          <input type="hidden" name="org.sunxin.token" value="<%=token%>"/>
                 <div class="weui_cells weui_cells_form">
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">卡号</label></div>
