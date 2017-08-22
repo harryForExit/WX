@@ -1,12 +1,15 @@
 package servletdepartment;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import util.TokenProcessor;
 
 //import com.lanxin.test.bean.bh;
 //import com.lanxin.test.service.clsbdhservice;
@@ -18,33 +21,65 @@ public class find extends HttpServlet{
 	throws ServletException, IOException {
 			doPost(request,response);
 }
-
-public void doPost(HttpServletRequest request, HttpServletResponse response)
+	   int count=0;
+public void doPost(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException {
 	
-	 request.setCharacterEncoding("UTF-8");  
-     response.setCharacterEncoding("UTF-8"); 
+	 req.setCharacterEncoding("UTF-8");  
+	 resp.setCharacterEncoding("UTF-8"); 
      
-	String xm=request.getParameter("xm");
+	 resp.setContentType("text/html;charset=GBK");
+     PrintWriter out=resp.getWriter();
+     
+     TokenProcessor processor=TokenProcessor.getInstance();
+     if(processor.isTokenValid(req))
+     {
+         try
+         {
+             Thread.sleep(5000);
+         }
+         catch(InterruptedException e)
+         {
+             System.out.println(e);
+         }
+             
+         System.out.println("submit : "+count);
+         if(count%2==1)
+             count=0;
+         else
+             count++;
+         //out.println("success");
+         String xm=req.getParameter("xm");
+     	 String cardno=req.getParameter("cardno");
+     	 String sfzmhm=req.getParameter("sfzmhm");
+         req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
+         //req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
+     }
+     else
+     {
+         processor.saveToken(req);
+         //out.println("你已经提交了表单，同一表单不能提交两次。");
+         req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
+     }
+     out.close();
+	/*String xm=request.getParameter("xm");
 	String cardno=request.getParameter("cardno");
 	String sfzmhm=request.getParameter("sfzmhm");
-
+	System.out.println(xm);*/
 	//System.out.println(hm);
 	//clsbdhservice clsbdhse=new clsbdhserviceimpl();
 	try {
 		
-		request.setAttribute("xm", xm);
+		/*request.setAttribute("xm", xm);
 		request.setAttribute("cardno", cardno);
-		request.setAttribute("sfzmhm", sfzmhm);
-		request.getRequestDispatcher("/from_smrz_2.jsp").forward(request, response);
+		request.setAttribute("sfzmhm", sfzmhm);*/
+	
 		
 	} catch (Exception e) {
-		
-		request.getRequestDispatcher("/from_smrz_2.jsp").forward(request, response);
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
+	//request.getRequestDispatcher("/from_smrz_2.jsp").forward(request, response);
 	
 }
 
