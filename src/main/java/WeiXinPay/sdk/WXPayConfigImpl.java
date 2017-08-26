@@ -31,11 +31,11 @@ public class WXPayConfigImpl extends WXPayConfig{
     }
 
     public String getAppID() {
-        return "wxab8acb865bb1637e";
+        return "wxba50d95321107e8f";
     }
 
     public String getMchID() {
-        return "11473623";
+        return "1446899402";
     }
 
     public String getKey() {

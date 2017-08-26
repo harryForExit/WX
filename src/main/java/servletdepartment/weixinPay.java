@@ -33,10 +33,10 @@ public class weixinPay extends HttpServlet {
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);
             total_fee = "1";
-            out_trade_no = "201613091059590000003433-asd002";
+
 
             final String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-
+            out_trade_no = "id"+uuid;
             HashMap<String, String> data = new HashMap<String, String>();
             data.put("body", "腾讯充值中心-QQ会员充值");
             data.put("out_trade_no", out_trade_no);
@@ -47,7 +47,7 @@ public class weixinPay extends HttpServlet {
             data.put("notify_url", "http://test.letiantian.me/wxpay/notify");
             data.put("trade_type", "NATIVE");
             data.put("product_id", uuid);
-
+            request.getSession().setAttribute("orderId",out_trade_no);
             Map<String, String> r = wxpay.unifiedOrder(data);
             System.out.println(r);
 
