@@ -51,8 +51,8 @@ public class MenuManager {
 	        btn13.setUrl("http://lwcs.ngrok.cc/wx/flow_check1.jsp"); 
 	  
 	        CommonButton btn21 = new CommonButton();  
-	        btn21.setName("歌曲点播");  
-	        btn21.setType("click");  
+	        btn21.setName("订购套餐");
+	        btn21.setType("http://lwcs.ngrok.cc/wx/buy");
 	        btn21.setKey("21");  
 	  
 	        CommonButton btn22 = new CommonButton();  

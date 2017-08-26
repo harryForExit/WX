@@ -36,6 +36,16 @@
         <url-pattern>/buy</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>notify</servlet-name>
+        <servlet-class>servletdepartment.notify</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>notify</servlet-name>
+        <url-pattern>/notify</url-pattern>
+    </servlet-mapping>
+
 <servlet-mapping>
     <servlet-name>find</servlet-name>
     <url-pattern>/index</url-pattern>

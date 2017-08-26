@@ -44,7 +44,7 @@ public class weixinPay extends HttpServlet {
             data.put("fee_type", "CNY");
             data.put("total_fee", total_fee);
             data.put("spbill_create_ip", IpUtil.getRemortIP(request));
-            data.put("notify_url", "http://test.letiantian.me/wxpay/notify");
+            data.put("notify_url", "http://lwcs.ngrok.cc/wx/notify");
             data.put("trade_type", "NATIVE");
             data.put("product_id", uuid);
             request.getSession().setAttribute("orderId",out_trade_no);
