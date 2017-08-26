@@ -82,15 +82,23 @@
 					<!--&lt;!&ndash; 添加这行 &ndash;&gt;<webDefaultXml>src/main/resources/jetty/webdefault.xml</webDefaultXml>
 					--><webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
 					<scanIntervalSeconds>3</scanIntervalSeconds>
-					<contextPath>/</contextPath>
+					<contextPath>/wx</contextPath>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8011</port>
+							<port>8080</port>
 						</connector>
 					</connectors>
 				</configuration>
 			</plugin>
-		</plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>
