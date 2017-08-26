@@ -45,15 +45,15 @@ public class MenuManager {
 	        btn12.setType("view");  
 	        btn12.setUrl("http://lwcs.ngrok.cc/wx/from_smrz_1.jsp");  
 	        
-	        ViewButton btn13 = new ViewButton();  
+	        ViewButton btn13 = new ViewButton();
 	        btn13.setName("流量查询");  
 	        btn13.setType("view");  
-	        btn13.setUrl("http://lwcs.ngrok.cc/wx/flow_check1.jsp"); 
-	  
-	        CommonButton btn21 = new CommonButton();  
+	        btn13.setUrl("http://lwcs.ngrok.cc/wx/flow_check1.jsp");
+
+			ViewButton btn21 = new ViewButton();
 	        btn21.setName("订购套餐");
-	        btn21.setType("http://lwcs.ngrok.cc/wx/buy");
-	        btn21.setKey("21");  
+	        btn21.setType("view");
+	        btn21.setUrl("http://lwcs.ngrok.cc/wx/buy");
 	  
 	        CommonButton btn22 = new CommonButton();  
 	        btn22.setName("经典游戏");  
@@ -86,7 +86,7 @@ public class MenuManager {
 	        btn32.setKey("32");  
 	  
 	        CommonButton btn33 = new CommonButton();  
-	        btn33.setName("幽默笑话");  
+	        btn33.setName("订购套餐");
 	        btn33.setType("click");  
 	        btn33.setKey("33");  
 	  
@@ -96,7 +96,7 @@ public class MenuManager {
 	  
 	        ComplexButton mainBtn2 = new ComplexButton();  
 	        mainBtn2.setName("主营业务");  
-	        mainBtn2.setSub_button(new CommonButton[] { btn21, btn22, btn23, btn24, btn25 });  
+	        mainBtn2.setSub_button(new CommonButton[] {  btn22, btn23, btn24, btn25 });
 	  
 	      /*  ComplexButton mainBtn3 = new ComplexButton();  
 	        mainBtn3.setName("更多体验");  
