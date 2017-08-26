@@ -42,6 +42,16 @@
     </servlet>
 
     <servlet-mapping>
+        <servlet-name>weixinPay</servlet-name>
+        <url-pattern>/weixinPay</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>weixinPay</servlet-name>
+        <servlet-class>servletdepartment.weixinPay</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
         <servlet-name>notify</servlet-name>
         <url-pattern>/notify</url-pattern>
     </servlet-mapping>

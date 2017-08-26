@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <title>WeUI</title>
     <script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
-    <script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>
+   <%-- <script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>--%>
     <link rel="stylesheet" href="<%=basePath%>/style/main.css"/>
     <link rel="stylesheet" href="<%=basePath%>/style/weui.css"/>
     <link rel="stylesheet" href="<%=basePath%>/style/example.css"/>
@@ -55,7 +55,7 @@
                     3GB</div></div>
             </div>
         </div>
-        <div class="weui_cells_title">支付金额：<span>4</span>元</div>
+        <div class="weui_cells_title">支付金额：<span id="money">4</span>元</div>
         <div class="weui_btn_area"> <a href="javascript:;" class="weui_btn weui_btn_primary">立即充值</a> </div>
     </div>
 </div>
@@ -76,7 +76,14 @@
             selectElement.attr("class","placeholder");//取消当前选中状态
             divElement.attr("class","placeholder_red");//设置为未选中状态
         })
+
+        $(".weui_btn_area").click(function () {
+            var money = $("#money").val();
+            window.location.href="/weixinPay?money="+money;
+        })
     })
+
+
 </script>
 </html>
 

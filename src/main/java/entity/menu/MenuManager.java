@@ -35,10 +35,10 @@ public class MenuManager {
 	     * @return 
 	     */  
 	    private static Menu getMenu() {  
-	        CommonButton btn11 = new CommonButton();  
+	        /*CommonButton btn11 = new CommonButton();
 	        btn11.setName("公司概况");  
 	        btn11.setType("click");  
-	        btn11.setKey("11");  
+	        btn11.setKey("11");  */
 	  
 	        ViewButton btn12 = new ViewButton();  
 	        btn12.setName("实名认证");  
@@ -55,7 +55,7 @@ public class MenuManager {
 	        btn21.setType("view");
 	        btn21.setUrl("http://lwcs.ngrok.cc/wx/buy");
 	  
-	        CommonButton btn22 = new CommonButton();  
+	        /*CommonButton btn22 = new CommonButton();
 	        btn22.setName("经典游戏");  
 	        btn22.setType("click");  
 	        btn22.setKey("22");  
@@ -96,7 +96,7 @@ public class MenuManager {
 	  
 	        ComplexButton mainBtn2 = new ComplexButton();  
 	        mainBtn2.setName("主营业务");  
-	        mainBtn2.setSub_button(new CommonButton[] {  btn22, btn23, btn24, btn25 });
+	        mainBtn2.setSub_button(new CommonButton[] {  btn22, btn23, btn24, btn25 });*/
 	  
 	      /*  ComplexButton mainBtn3 = new ComplexButton();  
 	        mainBtn3.setName("更多体验");  
@@ -106,7 +106,7 @@ public class MenuManager {
 	         *生成完整菜单
 	         */  
 	        Menu menu = new Menu();  
-	        menu.setButton(new Button[] { btn12, btn13, btn33 });  
+	        menu.setButton(new Button[] { btn12, btn13, btn21 });
 	  
 	        return menu;  
 	    }  

@@ -12,6 +12,10 @@
 %>
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>
+<script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>
+<body>
+<input type="hidden" id="appid" value="${appid}">
+</body>
 <script>
     onBridgeReady();
 </script>
