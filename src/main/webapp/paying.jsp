@@ -12,10 +12,9 @@
 %>
 <script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
 <script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>
-<script type="text/javascript" src="<%=basePath%>js/weixinPay.js" ></script>
 <body>
-<input type="hidden" id="appid" value="${appid}">
+<input type="text" id="appid" value="${appid}">
+<input type="text" id="sign" value="${sign}">
+<input type="text" id="prepay_id" value="${prepay_id}">
+<input type="button" onclick="pay()" value="立即支付">
 </body>
-<script>
-    onBridgeReady();
-</script>

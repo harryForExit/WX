@@ -72,7 +72,7 @@
 </servlet-mapping>
 
 
-  <servlet>
+  <!--<servlet>
     <servlet-name>fileUploadPicture</servlet-name>
     <servlet-class>servletdepartment.fileUploadPicture</servlet-class>
 	</servlet>
@@ -80,7 +80,7 @@
 <servlet-mapping>
     <servlet-name>fileUploadPicture</servlet-name>
     <url-pattern>/fileUploadPicture</url-pattern>
-</servlet-mapping>
+</servlet-mapping>-->
 
 
  <servlet>

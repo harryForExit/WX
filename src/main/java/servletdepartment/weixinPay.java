@@ -36,7 +36,7 @@ public class weixinPay extends HttpServlet {
 
 
             final String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-            out_trade_no = "id"+uuid;
+            out_trade_no = uuid;
             HashMap<String, String> data = new HashMap<String, String>();
             data.put("body", "腾讯充值中心-QQ会员充值");
             data.put("out_trade_no", out_trade_no);
@@ -50,6 +50,9 @@ public class weixinPay extends HttpServlet {
             request.getSession().setAttribute("orderId",out_trade_no);
             Map<String, String> r = wxpay.unifiedOrder(data);
             System.out.println(r);
+            request.setAttribute("appid",r.get("appid"));
+            request.setAttribute("sign",r.get("sign"));
+            request.setAttribute("prepay_id",r.get("prepay_id"));
 
         }catch (Exception e){
             e.printStackTrace();
