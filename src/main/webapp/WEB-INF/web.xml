@@ -62,6 +62,17 @@
 </servlet-mapping>
 
 
+  <servlet>
+    <servlet-name>fileUploadPicture</servlet-name>
+    <servlet-class>servletdepartment.fileUploadPicture</servlet-class>
+	</servlet>
+	
+<servlet-mapping>
+    <servlet-name>fileUploadPicture</servlet-name>
+    <url-pattern>/fileUploadPicture</url-pattern>
+</servlet-mapping>
+
+
  <servlet>
           <servlet-name>TimeServlet</servlet-name>
           <servlet-class>servletdepartment.TimeServlet</servlet-class>
