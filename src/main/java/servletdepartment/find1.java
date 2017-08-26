@@ -40,7 +40,7 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		JSONObject json2=new JSONObject();
 		HashMap writemap = new HashMap();
 		writemap.put("appid",util.Constants.appid);
-		writemap.put("token","$2y$12$FXYsWoY.1OoUtui49Ec1RueV7wQpTpkTncCZQqBHm4Ctl/BSMZZca");
+		writemap.put("token",util.Constants.token);
 		writemap.put("number",number);
 		json2=HttpClientUtils.getConnect1(writemap,"/meal/use");
 		System.out.println(json2.toString());

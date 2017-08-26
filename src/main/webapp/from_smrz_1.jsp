@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class=""><img src="img/process_1.png" width="100%"></div>
        
         <div class="weui_cells_title">表单</div>
-          <form action="index" id="loginForm1" method="post" name="loginForm1" id="loginForm1">
+          <form action="index"  method="post" name="loginForm1" id="loginForm1">
           <input type="hidden" name="_form_token" value="{$_form_token}" />
           <input type="hidden" name="org.sunxin.token" value="<%=token%>"/>
                 <div class="weui_cells weui_cells_form">
