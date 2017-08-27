@@ -45,14 +45,16 @@ public class weixinPay extends HttpServlet {
             data.put("total_fee", total_fee);
             data.put("spbill_create_ip", IpUtil.getRemortIP(request));
             data.put("notify_url", "http://lwcs.ngrok.cc/wx/notify");
-            data.put("trade_type", "NATIVE");
+            data.put("trade_type", "JSAPI");
             data.put("product_id", uuid);
+            data.put("openid", uuid);
             request.getSession().setAttribute("orderId",out_trade_no);
             Map<String, String> r = wxpay.unifiedOrder(data);
             System.out.println(r);
             request.setAttribute("appid",r.get("appid"));
             request.setAttribute("sign",r.get("sign"));
             request.setAttribute("prepay_id",r.get("prepay_id"));
+            request.setAttribute("nonce_str",r.get("nonce_str"));
 
         }catch (Exception e){
             e.printStackTrace();

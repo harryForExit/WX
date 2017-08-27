@@ -69,6 +69,14 @@
 				<scope>system</scope>
 				<systemPath>${project.basedir}/lib/toft-utils-1.2.jar</systemPath>
 			</dependency>
+
+		<dependency>
+			<groupId>javabase64</groupId>
+			<artifactId>javabase64</artifactId>
+			<version>1.3.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/javabase64-1.3.1.jar</systemPath>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>rop-sample</finalName>
@@ -82,10 +90,10 @@
 					<!--&lt;!&ndash; 添加这行 &ndash;&gt;<webDefaultXml>src/main/resources/jetty/webdefault.xml</webDefaultXml>
 					--><webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
 					<scanIntervalSeconds>3</scanIntervalSeconds>
-					<contextPath>/</contextPath>
+					<contextPath>/wx</contextPath>
 					<connectors>
 						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>8011</port>
+							<port>8080</port>
 						</connector>
 					</connectors>
 				</configuration>
