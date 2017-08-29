@@ -16,5 +16,6 @@
 <input type="text" id="appid" value="${appid}">
 <input type="text" id="sign" value="${sign}">
 <input type="text" id="prepay_id" value="${prepay_id}">
+<input type="text" id="nonce_str" value="${nonce_str}">
 <input type="button" onclick="pay()" value="立即支付">
 </body>

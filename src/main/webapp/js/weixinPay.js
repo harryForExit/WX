@@ -5,13 +5,14 @@ function onBridgeReady(){
     var appid = $("#appid").val();
     var paySign = $("#sign").val();
     var prepay_id = $("#prepay_id").val();
+    var nonce_str = $("#nonce_str").val();
     alert(appid);
     alert(paySign);
     WeixinJSBridge.invoke(
         'getBrandWCPayRequest', {
             "appId":appid,     //公众号名称，由商户传入
             "timeStamp":"1395712654",         //时间戳，自1970年以来的秒数
-            "nonceStr":"e61463f8efa94090b1f366cccfbbb444", //随机串
+            "nonceStr":nonce_str, //随机串
             "package":"prepay_id="+prepay_id,
             "signType":"MD5",         //微信签名方式：
             "paySign":paySign //微信签名

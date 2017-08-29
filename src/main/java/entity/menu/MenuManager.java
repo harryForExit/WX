@@ -53,7 +53,9 @@ public class MenuManager {
 			ViewButton btn21 = new ViewButton();
 	        btn21.setName("订购套餐");
 	        btn21.setType("view");
-	        btn21.setUrl("http://lwcs.ngrok.cc/wx/buy");
+	        btn21.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxba50d95321107e8f&redirect_uri=http://lwcs.ngrok.cc/wx/buy/&response_type=code&scope=snsapi_base&state=1#wechat_redirect");
+
+
 	  
 	        /*CommonButton btn22 = new CommonButton();
 	        btn22.setName("经典游戏");  
