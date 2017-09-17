@@ -206,6 +206,7 @@ public class WXPayUtil {
                 sb.append(k).append("=").append(data.get(k).trim()).append("&");
         }
         sb.append("key=").append(key);
+        System.out.println(sb.toString());
         if (SignType.MD5.equals(signType)) {
             return MD5(sb.toString()).toUpperCase();
         }
@@ -296,4 +297,20 @@ public class WXPayUtil {
         return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 32);
     }
 
+
+    public static void main(String[] args) {
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("appId","wxba50d95321107e8f ");
+        map.put("timeStamp","1505664668");
+        map.put("nonceStr","8BbtrWOkLiUoE3qD");
+        map.put("package","prepay_id=1wx20170918001108128d986e330458001332");
+        map.put("signType","MD5");
+
+        try {
+           String sign = generateSignature(map,"2ab9071b06b9f739b950ddb41db2690a");
+            System.out.println(sign);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

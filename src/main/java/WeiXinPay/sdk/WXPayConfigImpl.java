@@ -11,7 +11,7 @@ public class WXPayConfigImpl extends WXPayConfig{
     private static WXPayConfigImpl INSTANCE;
 
     private WXPayConfigImpl() throws Exception{
-        String certPath = "D://CERT/common/apiclient_cert.p12";
+        String certPath = "C://CERT/common/apiclient_cert.p12";
         File file = new File(certPath);
         InputStream certStream = new FileInputStream(file);
         this.certData = new byte[(int) file.length()];
@@ -39,7 +39,7 @@ public class WXPayConfigImpl extends WXPayConfig{
     }
 
     public String getKey() {
-        return "2ab9071b06b9f739b950ddb41db2690d";
+        return "2ab9071b06b9f739b950ddb41db2690a";
     }
 
     public InputStream getCertStream() {

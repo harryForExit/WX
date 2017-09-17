@@ -1,15 +1,16 @@
 package servletdepartment;
 
-import WeiXinPay.sdk.WXPay;
-import WeiXinPay.sdk.WXPayConfig;
-import WeiXinPay.sdk.WXPayConfigImpl;
+import WeiXinPay.sdk.*;
 import util.IpUtil;
+import util.OpenIdUtils;
+import util.PayUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -30,6 +31,10 @@ public class weixinPay extends HttpServlet {
         String out_trade_no;
         String total_fee;
         try {
+            if (request.getSession().getAttribute("openid") == null){
+                return;
+            }
+
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);
             total_fee = "1";
@@ -44,17 +49,32 @@ public class weixinPay extends HttpServlet {
             data.put("fee_type", "CNY");
             data.put("total_fee", total_fee);
             data.put("spbill_create_ip", IpUtil.getRemortIP(request));
-            data.put("notify_url", "http://lwcs.ngrok.cc/wx/notify");
+            data.put("notify_url", "http://wuyishiliu.com/notify");
             data.put("trade_type", "JSAPI");
             data.put("product_id", uuid);
-            data.put("openid", uuid);
+            System.out.println("openid ============ "+(String) request.getSession().getAttribute("openid"));
+            data.put("openid", (String) request.getSession().getAttribute("openid"));
             request.getSession().setAttribute("orderId",out_trade_no);
             Map<String, String> r = wxpay.unifiedOrder(data);
-            System.out.println(r);
-            request.setAttribute("appid",r.get("appid"));
-            request.setAttribute("sign",r.get("sign"));
-            request.setAttribute("prepay_id",r.get("prepay_id"));
-            request.setAttribute("nonce_str",r.get("nonce_str"));
+            System.out.println(r.toString());
+            String timeStamp = Long.toString(System.currentTimeMillis() / 1000);
+            String nonceStr = PayUtil.create_nonce_str();
+            Map<String,String> map = new HashMap<String,String>();
+            map.put("appId",r.get("appid"));
+            map.put("timeStamp",timeStamp);
+            map.put("nonceStr",nonceStr);
+            map.put("package","prepay_id="+r.get("prepay_id"));
+            map.put("signType", "MD5");
+
+            String sign = WXPayUtil.generateSignature(map,config.getKey(), WXPayConstants.SignType.MD5);
+
+            System.out.println("sign==========="+sign);
+
+            request.setAttribute("appId",r.get("appid"));
+            request.setAttribute("sign",sign);
+            request.setAttribute("pg",r.get("prepay_id"));
+            request.setAttribute("nonceStr", nonceStr);
+            request.setAttribute("timeStamp",timeStamp);
 
         }catch (Exception e){
             e.printStackTrace();

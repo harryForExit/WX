@@ -1,5 +1,7 @@
 package servletdepartment;
 
+import util.OpenIdUtils;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +19,8 @@ public class buy extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        OpenIdUtils.requireOpenId(request);
 
         request.getRequestDispatcher("/flow_result.jsp").forward(request, response);
     }
