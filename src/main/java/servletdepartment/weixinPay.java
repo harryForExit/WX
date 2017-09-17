@@ -31,9 +31,7 @@ public class weixinPay extends HttpServlet {
         String out_trade_no;
         String total_fee;
         try {
-            if (request.getSession().getAttribute("openid") == null){
-                return;
-            }
+
 
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);

@@ -6,22 +6,15 @@ function onBridgeReady(){
     var pg = $("#package").val()+"";
     var signType = "MD5";
     var paySign = $("#sign").val()+"";
-    alert(JSON.stringify({
-        "appId":appId,
-        "timeStamp":timeStamp,
-        "nonceStr":nonceStr,
-        "package":"prepay_id="+pg,
-        "signType":"MD5",
-        "paySign":paySign
-    }));
+    alert(appId+"======="+timeStamp+"=========="+nonceStr+"========="+pg+"============"+paySign);
     WeixinJSBridge.invoke(
         'getBrandWCPayRequest', {
-            "appId":appId,
-            "timeStamp":timeStamp,
-            "nonceStr":nonceStr,
+            "appId":appId,     //公众号名称，由商户传入
+            "timeStamp":timeStamp,         //时间戳，自1970年以来的秒数
+            "nonceStr":nonceStr, //随机串
             "package":"prepay_id="+pg,
-            "signType":"MD5",
-            "paySign":paySign
+            "signType":"MD5",         //微信签名方式：
+            "paySign":paySign //微信签名
         },
 
         function(res){

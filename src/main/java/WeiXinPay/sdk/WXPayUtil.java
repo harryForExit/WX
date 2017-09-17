@@ -307,7 +307,7 @@ public class WXPayUtil {
         map.put("signType","MD5");
 
         try {
-           String sign = generateSignature(map,"2ab9071b06b9f739b950ddb41db2690a");
+           String sign = generateSignature(map,"192006250b4c09247ec02edce69f6a2a");
             System.out.println(sign);
         } catch (Exception e) {
             e.printStackTrace();
