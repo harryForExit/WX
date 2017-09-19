@@ -79,13 +79,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
         <form action="sc" id="sc" method="post" name="sc" id="sc">
-      <input  type="text" name="xm"  value="${xm}" />
-      <input  type="text"  name="cardno" value="${cardno}" />
-      <input  type="text"  name="sfzmhm" value="${sfzmhm}" />
+      <input  type="hidden" name="xm"  value="${xm}" />
+      <input  type="hidden"  name="cardno" value="${cardno}" />
+      <input  type="hidden"  name="sfzmhm" value="${sfzmhm}" />
       
-      <input  type="text"  id="zm"  name="zm"  />
-      <input  type="text"  id="fm"  name="fm"  />
-      <input  type="text"  id="scc"  name="scc" />
+      <input  type="hidden"  id="zm"  name="zm"  />
+      <input  type="hidden"  id="fm"  name="fm"  />
+      <input  type="hidden"  id="scc"  name="scc" />
       </form>
       <div class="weui_btn_area">
                 <!-- <a href="from_smrz_2.html" class="weui_btn weui_btn_disabled weui_btn_primary">提交审核</a> -->

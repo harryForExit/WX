@@ -72,13 +72,13 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
 		request.setAttribute("status", status);
 		
 		//request.setAttribute("dw", dw);
-		request.getRequestDispatcher("/flow_result1.jsp").forward(request, response);
+		request.getRequestDispatcher("/from_smrz_3.jsp").forward(request, response);
 		//System.out.println(list.get(0));
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		request.setAttribute("status", status);
-		request.getRequestDispatcher("/flow_result1.jsp").forward(request, response);
+		request.getRequestDispatcher("/from_smrz_3.jsp").forward(request, response);
 		e.printStackTrace();
 	}
 	
