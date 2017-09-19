@@ -45,12 +45,12 @@ public class weixinPay extends HttpServlet {
             request.getSession().setAttribute("mealid",mealid);
             request.getSession().setAttribute("number",number);
 
-           int money = MealIdConfig.getPrice(mealid);
+           double money = MealIdConfig.getPrice(mealid);
             System.out.println("应付金额"+money);
 
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);
-            total_fee = "1";
+            total_fee = money+"";
 
 
             final String uuid = UUID.randomUUID().toString().replaceAll("-", "");

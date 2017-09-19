@@ -47,39 +47,39 @@
         <div class="page-bd" id="type1" style="display: block;">
 
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder_red" data-mealid="2007" data-value = 4>4元<br>
+                <div class="weui-flex-item"><div class="placeholder_red" data-mealid="2007" data-value = 1.2>1.2元<br>
                     30MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 8>8元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2008" data-value = 2.4>2.4元<br>
                     100MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 16>16元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2009" data-value = 4.8>4.8元<br>
                     300MB</div></div>
             </div>
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 24>24元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2010" data-value = 7.2>7.2元<br>
                     500MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 40>40元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2011" data-value = 12>12元<br>
                     1GB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 80>80元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2012" data-value = 24>24元<br>
                     3GB</div></div>
             </div>
         </div>
         <div class="page-bd" id="type2" style="display: block;">
 
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 4>4元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2052" data-value = 0.6>0.6元<br>
+                    5MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2053" data-value = 0.9>0.9元<br>
+                    10MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2054" data-value = 1.2>1.2元<br>
                     30MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 8>8元<br>
-                    100MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 16>16元<br>
-                    300MB</div></div>
             </div>
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 24>24元<br>
-                    500MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 40>40元<br>
-                    1GB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 80>80元<br>
-                    3GB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2055" data-value = 1.5>1.5元<br>
+                    50MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2056" data-value = 1.8>1.8元<br>
+                    70MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2057" data-value = 2.4>2.4元<br>
+                    100MB</div></div>
             </div>
         </div>
         <div class="weui_cells_title">支付金额：<span id="money">4</span>元</div>
@@ -108,7 +108,6 @@
             var money = $("#money").html();
             var number = $("#number").val();
             var mealid = $($(".weui-flex-item").find(".placeholder_red")[0]).attr("data-mealid");
-            alert(number);
             if (number == null||number=="" || mealid == null){
                 alert("请填写完整信息")
             }else {
