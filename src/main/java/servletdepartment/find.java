@@ -52,6 +52,10 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
          String xm=req.getParameter("xm");
      	 String cardno=req.getParameter("cardno");
      	 String sfzmhm=req.getParameter("sfzmhm");
+     	 
+     	req.setAttribute("xm", xm);
+     	req.setAttribute("cardno", cardno);
+     	req.setAttribute("sfzmhm", sfzmhm);
          req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
          //req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
      }

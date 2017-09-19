@@ -72,6 +72,17 @@
 </servlet-mapping>
 
 
+ <servlet>
+    <servlet-name>sc</servlet-name>
+    <servlet-class>servletdepartment.sc</servlet-class>
+	</servlet>
+	
+<servlet-mapping>
+    <servlet-name>sc</servlet-name>
+    <url-pattern>/sc</url-pattern>
+</servlet-mapping>
+
+
   <servlet>
     <servlet-name>fileUploadPicture</servlet-name>
     <servlet-class>servletdepartment.fileUploadPicture</servlet-class>

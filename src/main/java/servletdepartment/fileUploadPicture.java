@@ -210,13 +210,15 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
             fileMap.put("resource", filepath);  
               
             String ret = formUpload(urlStr, textMap, fileMap);  
-              
+            JSONObject jsonObject = new JSONObject(ret);
+            String zp=jsonObject.getString("resource");
+            		
             System.out.println(ret);  
     		
             PrintWriter out=resp.getWriter();
             String message="上传成功";
    
-            String json="{\"success\":\""+message+"\",\"photoname\":\""+date+"\"}";
+            String json="{\"success\":\""+message+"\",\"photoname\":\""+date+"\",\"zm\":\""+zp+"\"}";
             out.write(json);
            /* req.setAttribute("data", imgPath);
             req.setAttribute("message", "success");*/

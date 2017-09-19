@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-<title>WeUI</title>
+<title>流量查询</title>
 
   <link rel="stylesheet" href="<%=basePath%>style/main.css"/>
     <link rel="stylesheet" href="<%=basePath%>style/weui.css"/>
