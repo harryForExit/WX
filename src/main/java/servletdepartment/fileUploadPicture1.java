@@ -41,7 +41,7 @@ import util.TokenProcessor;
 //import com.lanxin.test.webservice.bean.WsQueryClxxOutBean;
 
 
-public class fileUploadPicture extends HttpServlet{
+public class fileUploadPicture1 extends HttpServlet{
 	
 
 	public static String formUpload(String urlStr, Map<String, String> textMap,  

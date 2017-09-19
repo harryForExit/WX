@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>WeUI</title>
+    <title>实名认证</title>
     <link rel="stylesheet" href="<%=basePath%>style/main.css"/>
     <link rel="stylesheet" href="<%=basePath%>style/weui.css"/>
     <link rel="stylesheet" href="<%=basePath%>style/example.css"/>
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">卡号</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="number" name="cardno" id="cardno" placeholder="请输入物联网卡号"/>
+                            <input class="weui_input" type="number" name="cardno" id="cardno" placeholder="请输入物联网卡号"  min='13' max='13'/>
                         </div>
                     </div>
                     <div class="weui_cell">
@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="weui_cell">
                         <div class="weui_cell_hd"><label class="weui_label">身体证</label></div>
                         <div class="weui_cell_bd weui_cell_primary">
-                            <input class="weui_input" type="number"  name="sfzmhm" id="sfzmhm"  placeholder="请输入办理时所用身份证"/>
+                            <input class="weui_input" type="number"  name="sfzmhm" id="sfzmhm"  placeholder="请输入办理时所用身份证"   min='18' max='18'/>
                         </div>
                     </div>
                     
@@ -75,6 +75,12 @@ function dd(){
 			  return false;
 		  }else if(cardno==null||cardno==""){
 			  alert("卡号不能为空");	
+			  return false;
+		  }else if(cardno.length!=13){
+			  alert("请输入正确的13位卡号");	
+			  return false;
+		  }else if(sfzmhm.length!=18){
+			  alert("请输入正确的18位身份证号");	
 			  return false;
 		  }else{
 			  

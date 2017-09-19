@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-<title>WeUI</title>
+<title>实名认证</title>
 <link rel="stylesheet" href="<%=basePath%>style/weui.css"/>
 <link rel="stylesheet" href="<%=basePath%>style/example.css"/>
 
@@ -33,8 +33,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="weui_uploader_bd">
               <div class="weui_uploader_input_wrp">
-                <input class="weui_uploader_input" id="payfile" name="myfile" onchange="fileChange(this)"  type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> 
-        
+                <input class="weui_uploader_input" id="zmfile" name="zmfile" onchange="fileChange(this)"  type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> 
+     			 <img id="image" > 
+        		 
               </div>
             </div>
           </div>
@@ -50,7 +51,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="weui_uploader_bd">
               <div class="weui_uploader_input_wrp">
-                <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple />
+                <!-- <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> -->
+                <input class="weui_uploader_input" id="fmyfile" name="fmfile" onchange="fileChange1(this)"  type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> 
+                <img id="image1" > 
               </div>
             </div>
           </div>
@@ -66,7 +69,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="weui_uploader_bd">
               <div class="weui_uploader_input_wrp">
-                <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple />
+                <!-- <input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> -->
+                <input class="weui_uploader_input" id="scyfile" name="scfile" onchange="fileChange2(this)"  type="file" accept="image/jpg,image/jpeg,image/png,image/gif" multiple /> 
+                <img id="image2" > 
               </div>
             </div>
           </div>
@@ -110,7 +115,9 @@ lrz(that.files[0], {
         success : function(data) {  
         if(data.success)  
             {  
-                alert(data.message);///data.message为上传成功后的文件路径  
+                alert(data.success);
+                //alert(data.photoname);///data.message为上传成功后的文件路径  
+                 $("#image").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
             }else{  
                 alert(data.message);///data.message为上传失败原因  
             }  
@@ -122,6 +129,97 @@ lrz(that.files[0], {
                 });  
      });  
 }  
+
+
+function fileChange1(that){  
+    var filepath=$(that).val();  
+    if(filepath=="")  
+    {  
+        return;  
+    }  
+    var extStart=filepath.lastIndexOf(".");  
+    var ext=filepath.substring(extStart,filepath.length).toUpperCase();  
+    if(".jpg|.png|.bmp|.jpeg".toUpperCase().indexOf(ext.toUpperCase())==-1){  
+       alert("只允许上传jpg、png、bmp、jpeg格式的图片");  
+        return false;  
+    }  
+ //以图片宽度为800进行压缩  
+lrz(that.files[0], {  
+     width: 800  
+   })  
+.then(function (rst) {  
+        //压缩后异步上传  
+        $.ajax({  
+        url : "<%=request.getContextPath()%>/fileUploadPicture1",  
+        type: "POST",  
+        data : {  
+            imgdata:rst.base64//压缩后的base值  
+        },  
+        dataType:"json",  
+        cache:false,  
+        async:false,  
+        success : function(data) {  
+        if(data.success)  
+            {  
+                alert(data.success);
+                //alert(data.photoname);///data.message为上传成功后的文件路径  
+                 $("#image1").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+            }else{  
+                alert(data.message);///data.message为上传失败原因  
+            }  
+                          
+                    },  
+    error : function(){  
+            alert("上传失败");  
+                    }  
+                });  
+     });  
+}  
+
+function fileChange2(that){  
+    var filepath=$(that).val();  
+    if(filepath=="")  
+    {  
+        return;  
+    }  
+    var extStart=filepath.lastIndexOf(".");  
+    var ext=filepath.substring(extStart,filepath.length).toUpperCase();  
+    if(".jpg|.png|.bmp|.jpeg".toUpperCase().indexOf(ext.toUpperCase())==-1){  
+       alert("只允许上传jpg、png、bmp、jpeg格式的图片");  
+        return false;  
+    }  
+ //以图片宽度为800进行压缩  
+lrz(that.files[0], {  
+     width: 800  
+   })  
+.then(function (rst) {  
+        //压缩后异步上传  
+        $.ajax({  
+        url : "<%=request.getContextPath()%>/fileUploadPicture2",  
+        type: "POST",  
+        data : {  
+            imgdata:rst.base64//压缩后的base值  
+        },  
+        dataType:"json",  
+        cache:false,  
+        async:false,  
+        success : function(data) {  
+        if(data.success)  
+            {  
+                alert(data.success);
+                //alert(data.photoname);///data.message为上传成功后的文件路径  
+                 $("#image2").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+            }else{  
+                alert(data.message);///data.message为上传失败原因  
+            }  
+                          
+                    },  
+    error : function(){  
+            alert("上传失败");  
+                    }  
+                });  
+     });  
+} 
     </script>  
 </body>
 </html>

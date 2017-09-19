@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>WeUI</title>
+    <title>流量查询</title>
     <link rel="stylesheet" href="<%=basePath%>style/main.css"/>
     <link rel="stylesheet" href="<%=basePath%>style/weui.css"/>
     <link rel="stylesheet" href="<%=basePath%>style/example.css"/>
@@ -44,6 +44,9 @@ function cc(){
 	      if(number==null||number==""){
 	    	  alert("卡号不能为空");	
 			return false;
+		  }else if(number.length!=13){
+			  alert("请输入正确的13位卡号");	
+			  return false;
 		  }else{
 			  
 			  $("#loginForm1").submit();

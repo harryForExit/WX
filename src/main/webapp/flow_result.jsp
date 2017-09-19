@@ -15,7 +15,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <title>WeUI</title>
+    <title>订购套餐</title>
     <script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
     <link rel="stylesheet" href="<%=basePath%>/style/main.css"/>
     <link rel="stylesheet" href="<%=basePath%>/style/weui.css"/>
@@ -34,8 +34,36 @@
                     <input class="weui_input" type="number" placeholder="请输入物联网卡号"/>
                 </div>
             </div>
+            <div class="weui_cell">
+                <div class="weui_cell_hd">
+                    <label class="weui_label">套餐类型</label>
+                </div>
+                <div class="weui_cell_bd weui_cell_primary">
+                    <input type="radio" name="type" onclick="if(checked){type1.style.display='block';type2.style.display='none';}" checked="checked">月加餐包
+					<input type="radio" name="type" onclick="if(checked){type1.style.display='none';type2.style.display='block';}">月固定流量包
+                </div>
+            </div>
         </div>
-        <div class="page-bd">
+        <div class="page-bd" id="type1" style="display: block;">
+
+            <div class="weui-flex">
+                <div class="weui-flex-item"><div class="placeholder_red" data-value = 4>4元<br>
+                    30MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-value = 8>8元<br>
+                    100MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-value = 16>16元<br>
+                    300MB</div></div>
+            </div>
+            <div class="weui-flex">
+                <div class="weui-flex-item"><div class="placeholder" data-value = 24>24元<br>
+                    500MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-value = 40>40元<br>
+                    1GB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-value = 80>80元<br>
+                    3GB</div></div>
+            </div>
+        </div>
+        <div class="page-bd" id="type2" style="display: block;">
 
             <div class="weui-flex">
                 <div class="weui-flex-item"><div class="placeholder_red" data-value = 4>4元<br>

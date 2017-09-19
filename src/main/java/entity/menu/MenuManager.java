@@ -48,7 +48,7 @@ public class MenuManager {
 	        ViewButton btn13 = new ViewButton();
 	        btn13.setName("流量查询");  
 	        btn13.setType("view");  
-	        btn13.setUrl("http://lwcs.ngrok.cc/wx/flow_check1.jsp");
+	        btn13.setUrl("http://wuyishiliu.com/flow_check1.jsp");
 
 			ViewButton btn21 = new ViewButton();
 	        btn21.setName("订购套餐");
