@@ -1,4 +1,5 @@
 <%@page language="java" pageEncoding="utf-8" isELIgnored="false"%>
+ <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <%
 String path = request.getContextPath();
@@ -77,8 +78,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </div>
         </div>
       </div>
+        <form action="sc" id="sc" method="post" name="sc" id="sc">
+      <input  type="text" name="xm"  value="${xm}" />
+      <input  type="text"  name="cardno" value="${cardno}" />
+      <input  type="text"  name="sfzmhm" value="${sfzmhm}" />
+      
+      <input  type="text"  id="zm"  name="zm"  />
+      <input  type="text"  id="fm"  name="fm"  />
+      <input  type="text"  id="scc"  name="scc" />
+      </form>
       <div class="weui_btn_area">
-                <a href="from_smrz_2.html" class="weui_btn weui_btn_disabled weui_btn_primary">提交审核</a>
+                <!-- <a href="from_smrz_2.html" class="weui_btn weui_btn_disabled weui_btn_primary">提交审核</a> -->
+                 <input type="button" class="weui_btn weui_btn_disabled weui_btn_primary" onclick="dd();" value="提交审核"/>
                 </div>
     </div>
   </div>
@@ -118,6 +129,7 @@ lrz(that.files[0], {
                 alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
                  $("#image").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#zm").val(data.zm);
             }else{  
                 alert(data.message);///data.message为上传失败原因  
             }  
@@ -164,6 +176,7 @@ lrz(that.files[0], {
                 alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
                  $("#image1").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#fm").val(data.fm);
             }else{  
                 alert(data.message);///data.message为上传失败原因  
             }  
@@ -209,6 +222,7 @@ lrz(that.files[0], {
                 alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
                  $("#image2").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#scc").val(data.sc);
             }else{  
                 alert(data.message);///data.message为上传失败原因  
             }  
@@ -220,6 +234,14 @@ lrz(that.files[0], {
                 });  
      });  
 } 
+
+function dd(){
+
+	
+			  $("#sc").submit();
+				return false;
+		
+	  }
     </script>  
 </body>
 </html>
