@@ -19,6 +19,8 @@ public class OpenIdUtils {
     private static String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
 
     public static void requireOpenId(HttpServletRequest request){
+        if (request.getSession().getAttribute("openid") !=null) return;
+
         HttpClientUtil httpClientUtil = new HttpClientUtil();
 
         String str = httpClientUtil.doGet(getUrl(request.getParameter("code")),null);

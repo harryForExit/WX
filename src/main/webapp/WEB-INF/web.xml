@@ -71,6 +71,16 @@
     <url-pattern>/index1</url-pattern>
 </servlet-mapping>
 
+    <servlet>
+        <servlet-name>buySomething</servlet-name>
+        <servlet-class>servletdepartment.BuySomething</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>buySomething</servlet-name>
+        <url-pattern>/buySomething</url-pattern>
+    </servlet-mapping>
+
 
  <servlet>
     <servlet-name>sc</servlet-name>

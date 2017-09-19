@@ -31,7 +31,7 @@
                     <label class="weui_label">卡号</label>
                 </div>
                 <div class="weui_cell_bd weui_cell_primary">
-                    <input class="weui_input" type="number" placeholder="请输入物联网卡号"/>
+                    <input class="weui_input" id="number" type="number" placeholder="请输入物联网卡号"/>
                 </div>
             </div>
             <div class="weui_cell">
@@ -47,38 +47,38 @@
         <div class="page-bd" id="type1" style="display: block;">
 
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder_red" data-value = 4>4元<br>
+                <div class="weui-flex-item"><div class="placeholder_red" data-mealid="2007" data-value = 4>4元<br>
                     30MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 8>8元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 8>8元<br>
                     100MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 16>16元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 16>16元<br>
                     300MB</div></div>
             </div>
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-value = 24>24元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 24>24元<br>
                     500MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 40>40元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 40>40元<br>
                     1GB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 80>80元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 80>80元<br>
                     3GB</div></div>
             </div>
         </div>
         <div class="page-bd" id="type2" style="display: block;">
 
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder_red" data-value = 4>4元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 4>4元<br>
                     30MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 8>8元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 8>8元<br>
                     100MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 16>16元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 16>16元<br>
                     300MB</div></div>
             </div>
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-value = 24>24元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 24>24元<br>
                     500MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 40>40元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 40>40元<br>
                     1GB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-value = 80>80元<br>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2007" data-value = 80>80元<br>
                     3GB</div></div>
             </div>
         </div>
@@ -105,9 +105,16 @@
         });
 
         $(".weui_btn_area").click(function () {
-            var money = $("#money").val();
-            alert("<%=basePath%>weixinPay?money="+money);
-            window.location.href="<%=basePath%>weixinPay?money="+money;
+            var money = $("#money").html();
+            var number = $("#number").val();
+            var mealid = $($(".weui-flex-item").find(".placeholder_red")[0]).attr("data-mealid");
+            alert(number);
+            if (number == null||number=="" || mealid == null){
+                alert("请填写完整信息")
+            }else {
+                window.location.href="<%=basePath%>weixinPay?money="+money+"&number="+number+"&mealid="+mealid ;
+            }
+
         })
     })
 </script>
