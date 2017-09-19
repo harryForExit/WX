@@ -81,8 +81,25 @@
                 <div class="weui-flex-item"><div class="placeholder" data-mealid="2057" data-value = 2.4>2.4元<br>
                     100MB</div></div>
             </div>
+
+            <div class="weui-flex">
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2058" data-value = 3.6>3.6元<br>
+                    5MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2059" data-value = 4.8>4.8元<br>
+                    10MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2060" data-value = 7.2>7.2元<br>
+                    30MB</div></div>
+            </div>
+            <div class="weui-flex">
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2061" data-value = 9.6>9.6元<br>
+                    50MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2062" data-value = 12>12元<br>
+                    70MB</div></div>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="2063" data-value = 18>18元<br>
+                    100MB</div></div>
+            </div>
         </div>
-        <div class="weui_cells_title">支付金额：<span id="money">4</span>元</div>
+        <div class="weui_cells_title">支付金额：<span id="money">1.2</span>元</div>
         <div class="weui_btn_area"> <a href="javascript:;" class="weui_btn weui_btn_primary">立即充值</a> </div>
     </div>
 </div>
