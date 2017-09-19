@@ -1,6 +1,7 @@
 package servletdepartment;
 
 import WeiXinPay.sdk.*;
+import config.MealIdConfig;
 import util.IpUtil;
 import util.OpenIdUtils;
 import util.PayUtil;
@@ -32,6 +33,20 @@ public class weixinPay extends HttpServlet {
         String total_fee;
         try {
 
+            if ((String) request.getSession().getAttribute("openid") == null){
+                return;
+            }
+
+           String number = request.getParameter("number");
+
+            String mealid = request.getParameter("mealid");
+
+
+            request.getSession().setAttribute("mealid",mealid);
+            request.getSession().setAttribute("number",number);
+
+           int money = MealIdConfig.getPrice(mealid);
+            System.out.println("应付金额"+money);
 
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);
@@ -64,6 +79,8 @@ public class weixinPay extends HttpServlet {
             map.put("package","prepay_id="+r.get("prepay_id"));
             map.put("signType", "MD5");
 
+            request.getSession().setAttribute("prepay_id",r.get("prepay_id"));
+
             String sign = WXPayUtil.generateSignature(map,config.getKey(), WXPayConstants.SignType.MD5);
 
             System.out.println("sign==========="+sign);
@@ -74,9 +91,10 @@ public class weixinPay extends HttpServlet {
             request.setAttribute("nonceStr", nonceStr);
             request.setAttribute("timeStamp",timeStamp);
 
+            request.getRequestDispatcher("/paying.jsp").forward(request, response);
         }catch (Exception e){
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/paying.jsp").forward(request, response);
+
     }
 }
