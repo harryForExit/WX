@@ -2,10 +2,7 @@ package servletdepartment;
 
 import com.toft.utils.json.JSONException;
 import com.toft.utils.json.JSONObject;
-import util.HttpClientUtil;
-import util.HttpClientUtils;
-import util.OpenIdUtils;
-import util.TokenProcessor;
+import util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +28,11 @@ public class BuySomething extends HttpServlet {
             request.setAttribute("message","购买失败");
             request.getRequestDispatcher("/buyFail_result.jsp").forward(request, response);
         }
-        String token = TokenProcessor.getInstance().getToken(request);
+        String token = util.Constants.token;
         HashMap map = new HashMap();
         map.put("mealid",mealid);
         map.put("number",number);
-        map.put("appid","ceab5f92-703c-11e7-999a-1866da5cf0bc");
+        map.put("appid", Constants.appid);
         map.put("token",token);
         try {
             String str =new HttpClientUtil().doPost("http://202.103.25.123:8080/meal/buy",map,"UTF-8");
