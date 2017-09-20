@@ -29,7 +29,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
 	 resp.setCharacterEncoding("UTF-8"); 
      
 	 resp.setContentType("text/html;charset=GBK");
-     PrintWriter out=resp.getWriter();
+   /*  PrintWriter out=resp.getWriter();
      
      TokenProcessor processor=TokenProcessor.getInstance();
      if(processor.isTokenValid(req))
@@ -47,7 +47,7 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
          if(count%2==1)
              count=0;
          else
-             count++;
+             count++;*/
          //out.println("success");
          String xm=req.getParameter("xm");
      	 String cardno=req.getParameter("cardno");
@@ -58,14 +58,14 @@ public void doPost(HttpServletRequest req, HttpServletResponse resp)
      	req.setAttribute("sfzmhm", sfzmhm);
          req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
          //req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
-     }
+    /* }
      else
      {
          processor.saveToken(req);
          //out.println("你已经提交了表单，同一表单不能提交两次。");
          req.getRequestDispatcher("/from_smrz_2.jsp").forward(req, resp);
      }
-     out.close();
+     out.close();*/
 	/*String xm=request.getParameter("xm");
 	String cardno=request.getParameter("cardno");
 	String sfzmhm=request.getParameter("sfzmhm");

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <%@page language="java" pageEncoding="utf-8" isELIgnored="false"%>
  <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<!DOCTYPE html>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -17,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body ontouchstart>
 <div class="container js_container">
   <div class="page">
-  <div class=""><img src="images/process_3.png" width="100%"></div>
+  <div class=""><img src="<%=basePath%>img/process_3.png" width="100%"></div>
     <div class="weui_msg">
     <c:if test="${status == '1'}">	
       <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>

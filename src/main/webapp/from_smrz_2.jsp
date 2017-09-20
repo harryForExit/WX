@@ -126,9 +126,9 @@ lrz(that.files[0], {
         success : function(data) {  
         if(data.success)  
             {  
-                alert(data.success);
+                //alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
-                 $("#image").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#image").attr("src",'http://wuyishiliu.com/photos/'+data.photoname+'.jpg'); 
                  $("#zm").val(data.zm);
             }else{  
                 alert(data.message);///data.message为上传失败原因  
@@ -173,9 +173,9 @@ lrz(that.files[0], {
         success : function(data) {  
         if(data.success)  
             {  
-                alert(data.success);
+                //alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
-                 $("#image1").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#image1").attr("src",'http://wuyishiliu.com/photos/'+data.photoname+'.jpg'); 
                  $("#fm").val(data.fm);
             }else{  
                 alert(data.message);///data.message为上传失败原因  
@@ -219,9 +219,9 @@ lrz(that.files[0], {
         success : function(data) {  
         if(data.success)  
             {  
-                alert(data.success);
+                //alert(data.success);
                 //alert(data.photoname);///data.message为上传成功后的文件路径  
-                 $("#image2").attr("src",'http://localhost:8080/wx/photos/'+data.photoname+'.jpg'); 
+                 $("#image2").attr("src",'http://wuyishiliu.com/photos/'+data.photoname+'.jpg'); 
                  $("#scc").val(data.sc);
             }else{  
                 alert(data.message);///data.message为上传失败原因  

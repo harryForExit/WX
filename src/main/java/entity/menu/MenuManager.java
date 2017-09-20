@@ -43,7 +43,7 @@ public class MenuManager {
 	        ViewButton btn12 = new ViewButton();  
 	        btn12.setName("实名认证");  
 	        btn12.setType("view");  
-	        btn12.setUrl("http://lwcs.ngrok.cc/wx/from_smrz_1.jsp");  
+	        btn12.setUrl("http://wuyishiliu.com/from_smrz_1.jsp");  
 	        
 	        ViewButton btn13 = new ViewButton();
 	        btn13.setName("流量查询");  
