@@ -46,17 +46,19 @@ public class weixinPay extends HttpServlet {
             request.getSession().setAttribute("number",number);
 
            double money = MealIdConfig.getPrice(mealid);
+
             System.out.println("应付金额"+money);
 
             config = WXPayConfigImpl.getInstance();
             wxpay = new WXPay(config);
-            total_fee = money+"";
+            total_fee = (money*100+"").split("\\.")[0];
+            System.out.println(total_fee+"=================");
 
 
             final String uuid = UUID.randomUUID().toString().replaceAll("-", "");
             out_trade_no = uuid;
             HashMap<String, String> data = new HashMap<String, String>();
-            data.put("body", "腾讯充值中心-QQ会员充值");
+            data.put("body", MealIdConfig.getDetail(mealid));
             data.put("out_trade_no", out_trade_no);
             data.put("device_info", "");
             data.put("fee_type", "CNY");

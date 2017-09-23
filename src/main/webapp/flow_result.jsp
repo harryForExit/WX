@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -45,63 +46,39 @@
             </div>
         </div>
         <div class="page-bd" id="type1" style="display: block;">
-
-            <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder_red" data-mealid="2007" data-value = 1.2>1.2元<br>
-                    30MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2008" data-value = 2.4>2.4元<br>
-                    100MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2009" data-value = 4.8>4.8元<br>
-                    300MB</div></div>
-            </div>
-            <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2010" data-value = 7.2>7.2元<br>
-                    500MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2011" data-value = 12>12元<br>
-                    1GB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2012" data-value = 24>24元<br>
-                    3GB</div></div>
-            </div>
+            <c:forEach items="${addMeals}" var="addmeal" varStatus="i">
+            <c:if test="${i.index ==0 || i.index % 3 == 0}">
+                <div class="weui-flex">
+            </c:if>
+                    <div class="weui-flex-item">
+                        <div class="placeholder" data-mealid="${addmeal.mealid}" data-value = "${addmeal.price}">${addmeal.price}元<br>
+                                ${addmeal.desc}</div>
+                    </div>
+                <c:if test="${(i.index+1) % 3 == 0}">
+                </div>
+            </c:if>
+            </c:forEach>
         </div>
-        <div class="page-bd" id="type2" style="display: block;">
 
-            <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2052" data-value = 0.6>0.6元<br>
-                    5MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2053" data-value = 0.9>0.9元<br>
-                    10MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2054" data-value = 1.2>1.2元<br>
-                    30MB</div></div>
-            </div>
-            <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2055" data-value = 1.5>1.5元<br>
-                    50MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2056" data-value = 1.8>1.8元<br>
-                    70MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2057" data-value = 2.4>2.4元<br>
-                    100MB</div></div>
-            </div>
+        <div class="page-bd" id="type2" style="display: none;">
 
+            <c:forEach items="${monthMeals}" var="monthmeal" varStatus="a">
+            <c:if test="${a.index ==0 || a.index % 3 == 0}">
             <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2058" data-value = 3.6>3.6元<br>
-                    5MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2059" data-value = 4.8>4.8元<br>
-                    10MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2060" data-value = 7.2>7.2元<br>
-                    30MB</div></div>
+                </c:if>
+                <div class="weui-flex-item"><div class="placeholder" data-mealid="${monthmeal.mealid}" data-value = "${monthmeal.price}">${monthmeal.price}元<br>
+                    ${monthmeal.desc}</div></div>
+
+                <c:if test="${(a.index+1) % 3 == 0}">
             </div>
-            <div class="weui-flex">
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2061" data-value = 9.6>9.6元<br>
-                    50MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2062" data-value = 12>12元<br>
-                    70MB</div></div>
-                <div class="weui-flex-item"><div class="placeholder" data-mealid="2063" data-value = 18>18元<br>
-                    100MB</div></div>
-            </div>
+            </c:if>
+            </c:forEach>
         </div>
         <div class="weui_cells_title">支付金额：<span id="money">1.2</span>元</div>
         <div class="weui_btn_area"> <a href="javascript:;" class="weui_btn weui_btn_primary">立即充值</a> </div>
     </div>
+
+
 </div>
 </body>
 <script>

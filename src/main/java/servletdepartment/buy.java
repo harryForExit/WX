@@ -1,5 +1,6 @@
 package servletdepartment;
 
+import config.MealIdConfig;
 import util.OpenIdUtils;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,10 @@ public class buy extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        OpenIdUtils.requireOpenId(request);
+       /* OpenIdUtils.requireOpenId(request);*/
+        System.out.println(MealIdConfig.getMonthMeals().size());
+        request.setAttribute("monthMeals", MealIdConfig.getMonthMeals());
+        request.setAttribute("addMeals", MealIdConfig.getAddMeals());
 
         request.getRequestDispatcher("/flow_result.jsp").forward(request, response);
     }

@@ -2,6 +2,7 @@ package servletdepartment;
 
 import com.toft.utils.json.JSONException;
 import com.toft.utils.json.JSONObject;
+import config.MealIdConfig;
 import util.*;
 
 import javax.servlet.ServletException;
@@ -41,6 +42,10 @@ public class BuySomething extends HttpServlet {
             System.out.println("返回的信息为："+str);
             if (jsonObject.get("status").toString().equals("1")){
                 request.setAttribute("status",1);
+                request.setAttribute("price", MealIdConfig.getPrice(mealid));
+                request.setAttribute("desc", MealIdConfig.getDetail(mealid));
+                request.setAttribute("number", number);
+                request.setAttribute("date", DateUtil.now());
             }else {
                 request.setAttribute("status",-1);
             }

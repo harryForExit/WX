@@ -1,21 +1,78 @@
 package config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MealIdConfig {
-    private static String [] mealid = {"2007","2008","2009","2010","2011","2012","2052","2053","2054","2055","2056","2057","2058","2059","2060","2061","2062","2063"};
-    private static double [] price = {1.2, 2.4, 4.8, 7.2, 12, 24, 0.6, 0.9, 1.2, 1.5, 1.8, 2.4, 3.6, 4.8, 7.2, 9.6, 12, 18};
+
+    private static List<AddMeal> addMeals = new ArrayList<AddMeal>();
+
+    private static List<MonthMeal> monthMeals = new ArrayList<MonthMeal>();
+
+    static {
+        //加餐包
+        addMeals.add(new AddMeal("2007",1.2,"30MB"));
+        addMeals.add(new AddMeal("2008",2.4,"100MB"));
+        addMeals.add(new AddMeal("2009",4.8,"300MB"));
+        addMeals.add(new AddMeal("2010",7.2,"500MB"));
+        addMeals.add(new AddMeal("2011",12,"1GB"));
+        addMeals.add(new AddMeal("2007",24,"3GB"));
+
+        //月固定
+        monthMeals.add(new MonthMeal("2062",12,"1GB "));
+        monthMeals.add(new MonthMeal("2064",24,"3GB "));
+        monthMeals.add(new MonthMeal("2066",41,"6GB "));
+        monthMeals.add(new MonthMeal("2067",54,"8GB "));
+        monthMeals.add(new MonthMeal("2068",60,"10GB "));
+        monthMeals.add(new MonthMeal("2069",81,"15GB "));
+        monthMeals.add(new MonthMeal("2070",105,"20GB "));
+        monthMeals.add(new MonthMeal("2071",150,"30GB "));
+        monthMeals.add(new MonthMeal("2072",234,"50GB "));
+        monthMeals.add(new MonthMeal("2073",420,"100GB "));
+        monthMeals.add(new MonthMeal("2074",1140,"300GB "));
+        monthMeals.add(new MonthMeal("2075",1650,"500GB "));
+
+    }
 
     public static double getPrice(String mealId){
-        Integer index = null;
-        for (int i=0;i<mealid.length;i++){
-            if (mealId.equals(mealid[i])){
-                index = i;
+        for (AddMeal addMeal : addMeals){
+            if (addMeal.getMealid().equals(mealId)){
+                return addMeal.getPrice();
             }
         }
 
-        if (index == null){
-            throw new RuntimeException("无此套餐");
+        for (MonthMeal monthMeal : monthMeals){
+            if (monthMeal.getMealid().equals(mealId)){
+                return monthMeal.getPrice();
+            }
         }
 
-        return price[index];
+        throw new RuntimeException("无此套餐");
+    }
+
+    public static String getDetail(String mealId){
+        for (AddMeal addMeal : addMeals){
+            if (addMeal.getMealid().equals(mealId)){
+                return addMeal.getDesc();
+            }
+        }
+
+        for (MonthMeal monthMeal : monthMeals){
+            if (monthMeal.getMealid().equals(mealId)){
+                return monthMeal.getDesc();
+            }
+        }
+
+        throw new RuntimeException("无此套餐");
+    }
+
+
+
+    public static List<MonthMeal> getMonthMeals(){
+        return monthMeals;
+    }
+
+    public static List<AddMeal> getAddMeals(){
+        return addMeals;
     }
 }
